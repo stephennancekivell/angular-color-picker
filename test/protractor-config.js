@@ -32,7 +32,8 @@ var _config = {
         showColors: true,
         defaultTimeoutInterval: 80000,
         isVerbose: true,
-        includeStackTrace: true
+        includeStackTrace: true,
+        framework: 'jasmine2'
     },
     onPrepare: function() {
         // allow new javascript features to work
