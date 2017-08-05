@@ -4,7 +4,7 @@
  *
  * Copyright 2017 ruhley
  *
- * 2017-07-31 08:38:19
+ * 2017-08-05 16:04:34
  *
  */
 
@@ -611,7 +611,7 @@ var AngularColorPickerController = function () {
             this.opacityPosUpdate();
 
             if (this.updateModel) {
-                switch (this.options.format) {
+                switch (this.options.format.toLowerCase()) {
                     case 'rgb':
                         this.ngModel = color.toRgbString();
                         break;

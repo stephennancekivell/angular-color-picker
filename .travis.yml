@@ -19,4 +19,5 @@ before_script:
   - grunt connect:test:keepalive &
 
 script:
+  - grunt build
   - npm test
