@@ -1,7 +1,7 @@
 
 class Page {
     constructor() {
-        this.url = 'http://localhost:8000/test/test.html';
+        this.url = 'http://127.0.0.1:8000/test/test.html';
         // this.url = 'http://localhost/angular-color-picker/test/test.html';
         this.body = element(by.css('body'));
 
@@ -75,7 +75,7 @@ class Page {
         browser.waitForAngularEnabled(true);
         browser.wait(() => {
             return this.input_field.isPresent();
-        }, 30000, 'Page not loaded');
+        }, 40000, 'Page not loaded');
     }
 
     openColorPicker() {

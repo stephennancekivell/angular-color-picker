@@ -22,8 +22,8 @@ for (var i = 0; i < files.length; i++) {
 //-------------------------
 
 var _config = {
-    seleniumServerJar: "." + selenium_dir + selenium_server_jar,
-    chromeDriver: "." + selenium_dir + chrome_driver,
+    // seleniumServerJar: "." + selenium_dir + selenium_server_jar,
+    // chromeDriver: "." + selenium_dir + chrome_driver,
     specs: ["**/*.protractor.js"],
     directConnect: true,
     framework: 'jasmine2',
@@ -34,6 +34,9 @@ var _config = {
          args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
        }
     },
+    // allScriptsTimeout: 30000,
+    
+
 
     // options to be passed to jasmine
     jasmineNodeOpts: {
@@ -47,8 +50,8 @@ var _config = {
         require( "babel-core/register" )( { presets: [ "es2015" ] } );
 
         // set the position and size of the browser
-        browser.driver.manage().window().setSize( 1600, 800 );
-        browser.driver.manage().window().setPosition( 50, 100 );
+        // browser.driver.manage().window().setSize( 1600, 800 );
+        // browser.driver.manage().window().setPosition( 50, 100 );
     },
 };
 
