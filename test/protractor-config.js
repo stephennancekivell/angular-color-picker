@@ -27,6 +27,13 @@ var _config = {
     specs: ["**/*.protractor.js"],
     directConnect: true,
     framework: 'jasmine2',
+    capabilities: {
+      browserName: 'chrome',
+
+      chromeOptions: {
+         args: [ "--headless", "--disable-gpu", "--window-size=800,600" ]
+       }
+    },
 
     // options to be passed to jasmine
     jasmineNodeOpts: {

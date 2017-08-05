@@ -74,7 +74,7 @@ class Page {
     waitTillPageLoaded() {
         browser.wait(() => {
             return this.input_field.isPresent();
-        }, 10000, 'Page not loaded');
+        }, 30000, 'Page not loaded');
     }
 
     openColorPicker() {
