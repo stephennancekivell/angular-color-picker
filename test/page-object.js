@@ -72,6 +72,7 @@ class Page {
 
     // wait for the page to load
     waitTillPageLoaded() {
+        browser.waitForAngularEnabled(true);
         browser.wait(() => {
             return this.input_field.isPresent();
         }, 30000, 'Page not loaded');
