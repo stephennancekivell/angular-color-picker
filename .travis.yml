@@ -4,7 +4,7 @@ language: node_js
 notifications:
   email: false
 node_js:
-  - "7"
+  - "8"
 
 before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
