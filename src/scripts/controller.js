@@ -545,13 +545,8 @@ export default class AngularColorPickerController {
         this.lightnessPosUpdate();
         this.updateAlphaBackground(color);
         this.opacityPosUpdate();
-
-        function inputColorEquals() {
-            var tcOfModel = tinycolor(this.ngModel);
-            return tcOfModel.toHsvString() === color.toHsvString();
-        }
-
-        var skipUpdate = this.options.preserveInputFormat && inputColorEquals();
+        
+        var skipUpdate = this.options.preserveInputFormat && tinycolor(this.ngModel).toHsvString() === color.toHsvString();
 
         if (this.updateModel && !skipUpdate) {
             switch (this.options.format.toLowerCase()) {

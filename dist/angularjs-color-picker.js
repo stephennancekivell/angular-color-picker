@@ -4,7 +4,7 @@
  *
  * Copyright 2017 ruhley
  *
- * 2017-07-31 08:38:19
+ * 2017-08-07 11:24:06
  *
  */
 
@@ -254,7 +254,7 @@ var AngularColorPickerController = function () {
 
             this.$scope.$watch('AngularColorPickerController.options.swatchPos', this.watchSwatchPos.bind(this));
 
-            this.$scope.$watchGroup(['AngularColorPickerController.options.format', 'AngularColorPickerController.options.alpha', 'AngularColorPickerController.options.case', 'AngularColorPickerController.options.round', 'AngularColorPickerController.options.restrictToFormat', 'AngularColorPickerController.options.allowEmpty', 'AngularColorPickerController.options.horizontal'], this.reInitAndUpdate.bind(this));
+            this.$scope.$watchGroup(['AngularColorPickerController.options.format', 'AngularColorPickerController.options.alpha', 'AngularColorPickerController.options.case', 'AngularColorPickerController.options.round', 'AngularColorPickerController.options.restrictToFormat', 'AngularColorPickerController.options.preserveInputFormat', 'AngularColorPickerController.options.allowEmpty', 'AngularColorPickerController.options.horizontal'], this.reInitAndUpdate.bind(this));
 
             this.$scope.$watchGroup(['AngularColorPickerController.options.disabled', 'AngularColorPickerController.options.swatchBootstrap', 'AngularColorPickerController.options.swatchOnly', 'AngularColorPickerController.options.swatch', 'AngularColorPickerController.options.pos', 'AngularColorPickerController.options.inline', 'AngularColorPickerController.options.placeholder'], this.reInit.bind(this));
 
@@ -610,8 +610,10 @@ var AngularColorPickerController = function () {
             this.updateAlphaBackground(color);
             this.opacityPosUpdate();
 
-            if (this.updateModel) {
-                switch (this.options.format) {
+            var skipUpdate = this.options.preserveInputFormat && tinycolor(this.ngModel).toHsvString() === color.toHsvString();
+
+            if (this.updateModel && !skipUpdate) {
+                switch (this.options.format.toLowerCase()) {
                     case 'rgb':
                         this.ngModel = color.toRgbString();
                         break;
@@ -1416,6 +1418,7 @@ var AngularColorPickerOptions = function AngularColorPickerOptions() {
         inputClass: '',
         // validation
         restrictToFormat: false,
+        preserveInputFormat: false,
         allowEmpty: false,
         // color
         format: 'hsl',
