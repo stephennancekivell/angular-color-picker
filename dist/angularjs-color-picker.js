@@ -4,7 +4,7 @@
  *
  * Copyright 2017 ruhley
  *
- * 2017-08-07 13:27:55
+ * 2017-08-09 21:37:09
  *
  */
 
@@ -274,8 +274,8 @@ var AngularColorPickerController = function () {
 
             // ngModel
 
-            this.$scope.$watch('AngularColorPickerController.ngModel', this.watchNgModel.bind(this));
             this.$scope.$watch('AngularColorPickerController.internalNgModel', this.watchNgModel.bind(this));
+            this.$scope.$watch('AngularColorPickerController.ngModel', this.watchNgModel.bind(this));
 
             // options
 
